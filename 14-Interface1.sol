@@ -2,33 +2,51 @@
 pragma solidity ^0.8.0;
 
 interface IRegistration {
-    struct Student {
+    struct Person {
         string name;
         string surname;
         uint no;
     }
-
-    function getStudentCount() external view returns (uint);
-    function getStudent(uint _no) external view returns (Student memory);
-    function registerStudent(string memory _name, string memory _surname, uint _no) external;
+    
+    function getCount() external view returns (uint);
+    function getPerson(uint _no) external view returns (Person memory);
+    function registerPerson(string memory _name, string memory _surname, uint _no) external;
 }
-
 
 contract RegisterStudent is IRegistration {
     uint studentCount;
-    mapping(uint => Student) students;
+    mapping(uint => Person) students;
 
-    function getStudentCount() external view override returns (uint) {
+    function getCount() external view override returns (uint) {
         return studentCount;
     }
 
-    function registerStudent(string memory _name, string memory _surname, uint _no) external override {
-        students[_no] = Student({name:_name, surname:_surname, no:_no });
+    function registerPerson(string memory _name, string memory _surname, uint _no) external override {
+        students[_no] = Person({name:_name, surname:_surname, no:_no });
         studentCount++;
     }
 
-    function getStudent(uint _no) external view override returns (Student memory) {
-        Student memory student = students[_no];
+    function getPerson(uint _no) external view override returns (Person memory) {
+        Person memory student = students[_no];
+        return student;
+    }
+}
+
+contract RegisterTeacher is IRegistration {
+    uint teacherCount;
+    mapping(uint => Person) teachers;
+
+    function getCount() external view override returns (uint) {
+        return teacherCount;
+    }
+
+    function registerPerson(string memory _name, string memory _surname, uint _no) external override {
+        teachers[_no] = Person({name:_name, surname:_surname, no:_no });
+        teacherCount++;
+    }
+
+    function getPerson(uint _no) external view override returns (Person memory) {
+        Person memory student = teachers[_no];
         return student;
     }
 }
