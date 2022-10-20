@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >= 0.8.0;
 
-contract Memory1 {
+contract StorageAndMemoryTest {
     struct User {
       uint256 id;
       string name;
