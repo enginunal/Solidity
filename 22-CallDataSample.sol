@@ -16,7 +16,7 @@ pragma solidity >= 0.8.12;
   }
 
   function CalldataSample3(string memory strMemData) public pure returns(string memory){    
-    strMemData = string.concat(strMemData, " - ");
+    strMemData = string.concat(" - ", strMemData);
     return string.concat(strMemData, " CalldataSample3");    
   }
    
