@@ -47,7 +47,7 @@ contract GIST_Token {
         s_balances[_from] -= _value;
         s_balances[_to] += _value;
 
-        emit Transfer(msg.sender, _to, _value);
+        emit Transfer(_from, _to, _value);
         return true;
     }
 
