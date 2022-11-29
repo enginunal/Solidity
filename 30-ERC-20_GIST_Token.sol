@@ -2,11 +2,11 @@
 pragma solidity ^0.8.7;
 
 contract GIST_Token {
-    mapping(address => uint256) s_balances;
-    mapping(address => mapping(address => uint256)) s_allowances;
-    uint256 s_totalSupply;
-    string s_name;
-    string s_symbol;
+    mapping(address => uint256) private s_balances;
+    mapping(address => mapping(address => uint256)) private s_allowances;
+    uint256 private s_totalSupply;
+    string private s_name;
+    string private s_symbol;
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
